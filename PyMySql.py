@@ -26,13 +26,15 @@ def create_table():
             cursor.execute(sql_command)
         pymysql1.commit()
 
+
+
 #Insert into
 
 def insert_into_table(Name,SurName,Email,Password):
     with pymysql1:
         with pymysql1.cursor() as cursor:
             sql_command = "Insert Into PyMySql.User (Name,SurName,Email,Password) Values (%s,%s,%s,%s)"
-            cursor.execute(sql_command(Name,SurName,Email,Password))
+            cursor.execute(sql_command,(Name,SurName,Email,Password))
         pymysql1.commit()
 
 
@@ -104,4 +106,3 @@ def del_table(id):
             c.execute(sql_command,(id))
         pymysql1.commit()
 
-del_table(6)
